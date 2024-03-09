@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 const AuthLayouts = (props) => {
-  const { children, title } = props;
+  const { children, title, title2, title3, link } = props;
   return (
     <>
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -14,6 +16,15 @@ const AuthLayouts = (props) => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">{children}</div>
+      <p class="mt-10 text-center text-sm text-gray-500">
+        {title2}
+        <Link
+          to={link}
+          class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+        >
+          {title3}
+        </Link>
+      </p>
     </>
   );
 };
