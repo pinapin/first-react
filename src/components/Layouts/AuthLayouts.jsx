@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const AuthLayouts = (props) => {
-  const { children, title, title2, title3, link } = props;
+  const { children, title, type } = props;
   return (
     <>
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -16,17 +16,64 @@ const AuthLayouts = (props) => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">{children}</div>
-      <p class="mt-10 text-center text-sm text-gray-500">
-        {title2}
-        <Link
-          to={link}
-          class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-        >
-          {title3}
-        </Link>
-      </p>
+
+      <Navigation type={type} />
+
+      {/* PAKAI TERNARY OPERATOR */}
+      {/* <p className="mt-10 text-center text-sm text-gray-500">
+        {type === "login"
+          ? "Don't have an account? "
+          : "Already have an account? "}
+
+        {type === "login" && (
+          <Link
+            to="/register"
+            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+          >
+            Register
+          </Link>
+        )}
+
+        {type === "register" && (
+          <Link
+            to="/login"
+            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+          >
+            Login
+          </Link>
+        )}
+      </p> */}
     </>
   );
+};
+
+// PAKAI FUNCTION
+const Navigation = ({ type }) => {
+  if (type === "login") {
+    return (
+      <p className="mt-10 text-center text-sm text-gray-500">
+        Don't have an account?{" "}
+        <Link
+          to="/register"
+          className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+        >
+          Register
+        </Link>
+      </p>
+    );
+  } else {
+    return (
+      <p className="mt-10 text-center text-sm text-gray-500">
+        Aleady have an account?{" "}
+        <Link
+          to="/login"
+          className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+        >
+          Login
+        </Link>
+      </p>
+    );
+  }
 };
 
 export default AuthLayouts;

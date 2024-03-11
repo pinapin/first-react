@@ -20,7 +20,9 @@ const FormLogin = () => {
       </div>
 
       <div>
-        <Button type="submit">Login</Button>
+        <Button className="w-full" type="submit">
+          Login
+        </Button>
       </div>
     </form>
   );
