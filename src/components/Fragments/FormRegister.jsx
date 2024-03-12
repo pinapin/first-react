@@ -31,7 +31,7 @@ const FormRegister = () => {
       />
 
       <div>
-        <Button type="submit">Register</Button>
+        <Button type="button">Register</Button>
       </div>
     </form>
   );
